@@ -17,14 +17,12 @@ public class BackgroundLoader extends AsyncTaskLoader<ArrayList<News>> {
     public BackgroundLoader(Context context, String url){
         super(context);
         this.url = url;
-
     }
 
     @Override
     protected void onStartLoading() {
         forceLoad();
     }
-
 
     @Override
     public ArrayList<News> loadInBackground() {

@@ -10,7 +10,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class NewsCategory extends AppCompatActivity {
+public class NewsMainActivity extends AppCompatActivity {
+
 
     private final static int CULTURE_NUMBER = 0;
     private final static int BUSINESS_NUMBER = 1;
@@ -21,10 +22,11 @@ public class NewsCategory extends AppCompatActivity {
     private final static int TRAVEL_NUMBER = 6;
     private Intent i;
 
+    private Bundle b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_category);
+        setContentView(R.layout.general_list_view);
 
         ArrayList<String> cats = new ArrayList<>();
         cats.add(getString(R.string.cat_culture));
@@ -35,46 +37,50 @@ public class NewsCategory extends AppCompatActivity {
         cats.add(getString(R.string.cat_technology));
         cats.add(getString(R.string.cat_travel));
 
-        ListView rv = (ListView) findViewById(R.id.category_list_view);
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.category_list_item, cats);
+        ListView rv = (ListView) findViewById(R.id.general_list_view);
+        ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.category_list_item, cats);
         rv.setAdapter(adapter);
+
+        View loadingIndicator = findViewById(R.id.progress_bar),
+                loadingText = findViewById(R.id.loading_message);
+        loadingIndicator.setVisibility(View.GONE);
+        loadingText.setVisibility(View.GONE);
 
         rv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case CULTURE_NUMBER:
-                        i = new Intent(NewsCategory.this, Culture.class);
+                        i = new Intent(NewsMainActivity.this, Culture.class);
                         startActivity(i);
                         break;
                     case BUSINESS_NUMBER:
-                        i = new Intent(NewsCategory.this, Business.class);
+                        i = new Intent(NewsMainActivity.this, Business.class);
                         startActivity(i);
                         break;
                     case LIFESTYLE_NUMBER:
-                        i = new Intent(NewsCategory.this, Lifestyle.class);
+                        i = new Intent(NewsMainActivity.this, Lifestyle.class);
                         startActivity(i);
                         break;
                     case FASHION_NUMBER:
-                        i = new Intent(NewsCategory.this, Fashion.class);
+                        i = new Intent(NewsMainActivity.this, Fashion.class);
                         startActivity(i);
                         break;
                     case ENVIRONMENT_NUMBER:
-                        i = new Intent(NewsCategory.this, EnvironmentActivity.class);
+                        i = new Intent(NewsMainActivity.this, EnvironmentActivity.class);
                         startActivity(i);
                         break;
                     case TECH_NUMBER:
-                        i = new Intent(NewsCategory.this, Tech.class);
+                        i = new Intent(NewsMainActivity.this, Tech.class);
                         startActivity(i);
                         break;
                     case TRAVEL_NUMBER:
-                        i = new Intent(NewsCategory.this, Travel.class);
+                        i = new Intent(NewsMainActivity.this, Travel.class);
                         startActivity(i);
                         break;
                 }
             }
         });
-
 
     }
 

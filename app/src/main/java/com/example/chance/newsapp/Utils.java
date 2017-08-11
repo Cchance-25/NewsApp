@@ -32,8 +32,6 @@ public final class Utils {
     private static final String TAG = Utils.class.getSimpleName();
     private static final int CONNECTION_TIMEOUT = 10000;
     private static final int READ_TIMEOUT = 15000;
-    private static ArrayList<News> list = new ArrayList<>();
-
     // JSON KEYS
     private static final String BASE_JSON_ARRAY_NAME_KEY = "response";
     private static final String ARTICLE_NEWS_ARRAY_KEY = "results";
@@ -42,7 +40,7 @@ public final class Utils {
     private static final String ARTICLE_AUTHOR_KEY = "author";
     private static final String ARTICLE_PUBLISH_DATE_KEY = "webPublicationDate";
     private static final String ARTICLE_URL_KEY = "webUrl";
-
+    private static ArrayList<News> list = new ArrayList<>();
 
     private Utils() {
         // No objects should be created of this class
@@ -61,9 +59,8 @@ public final class Utils {
             con.setConnectTimeout(CONNECTION_TIMEOUT);
             con.setReadTimeout(READ_TIMEOUT);
             con.connect();
-            Log.e(TAG, "Connected123"+con.getResponseCode());
 
-            if (con.getResponseCode() == con.HTTP_OK) {
+            if (con.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 inputStream = new BufferedInputStream(con.getInputStream());
                 String jsonResponse = getStringResponse(inputStream);
                 extractFeaturesFromJson(jsonResponse);
@@ -100,12 +97,9 @@ public final class Utils {
     public static void extractFeaturesFromJson(String jsonResponse) {
 
         try {
-            Log.e(TAG, jsonResponse);
             JSONObject baseJsonResponse = new JSONObject(jsonResponse);
             JSONObject response = baseJsonResponse.getJSONObject(BASE_JSON_ARRAY_NAME_KEY);
-            Log.e(TAG, response.toString());
             JSONArray articlesArray = response.getJSONArray(ARTICLE_NEWS_ARRAY_KEY);
-            Log.e(TAG, "LENGTH: "+articlesArray.length());
 
             if (articlesArray.length() < 0) {
                 Log.e(TAG, "Base array empty!");
@@ -166,6 +160,5 @@ public final class Utils {
     public static void clearList() {
         list.clear();
     }
-
 
 }

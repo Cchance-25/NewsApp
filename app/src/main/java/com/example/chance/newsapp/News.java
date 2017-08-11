@@ -12,11 +12,7 @@ public class News {
     private String URL;
 
     public News() {
-        this.newsHeaderTitle = null;
-        this.newsArticleSection = null;
-        this.newsPublishDate = null;
-        this.author = null;
-        URL = null;
+        // Empty default constructor
     }
 
     public News(String newsHeaderTitle, String newsArticleSection, String newsPublishDate, String author, String url) {

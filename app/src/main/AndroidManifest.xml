@@ -12,8 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".NewsCategory">
+        <activity android:name=".NewsMainActivity">
             <intent-filter
                 android:label="News Categories">
                 <action android:name="android.intent.action.MAIN" />
@@ -24,35 +23,35 @@
         <activity
             android:name=".Culture"
             android:label="Culture News Feed"
-            android:parentActivityName=".NewsCategory" />
+            android:parentActivityName=".NewsMainActivity" />
         <activity
             android:name=".Business"
             android:label="Business News Feed"
-            android:parentActivityName=".NewsCategory" />
+            android:parentActivityName=".NewsMainActivity" />
         <activity
             android:name=".Lifestyle"
             android:label="Lifestyle News Feed"
-            android:parentActivityName=".NewsCategory" />
+            android:parentActivityName=".NewsMainActivity" />
 
         <activity
             android:name=".Fashion"
             android:label="Fashion News Feed"
-            android:parentActivityName=".NewsCategory" />
+            android:parentActivityName=".NewsMainActivity" />
 
         <activity
             android:name=".EnvironmentActivity"
             android:label="Environment News Feed"
-            android:parentActivityName=".NewsCategory" />
+            android:parentActivityName=".NewsMainActivity" />
 
         <activity
             android:name=".Tech"
             android:label="Technology News Feed"
-            android:parentActivityName=".NewsCategory" />
+            android:parentActivityName=".NewsMainActivity" />
 
         <activity
             android:name=".Travel"
             android:label="Travel News Feed"
-            android:parentActivityName=".NewsCategory" />
+            android:parentActivityName=".NewsMainActivity" />
     </application>
 
 </manifest>

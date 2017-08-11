@@ -30,11 +30,11 @@ public class Tech extends AppCompatActivity implements LoaderManager.LoaderCallb
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tech);
+        setContentView(R.layout.general_list_view);
         loadingIndicator = findViewById(R.id.progress_bar);
         loadingText = (TextView) findViewById(R.id.loading_message);
 
-        listView = (ListView) findViewById(R.id.tech_list_view);
+        listView = (ListView) findViewById(R.id.general_list_view);
         list = new ArrayList<>();
         adapter = new ListAdapter(this, list);
         listView.setAdapter(adapter);

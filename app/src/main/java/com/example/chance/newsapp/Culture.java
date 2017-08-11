@@ -30,11 +30,11 @@ public class Culture extends AppCompatActivity implements LoaderManager.LoaderCa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_culture);
+        setContentView(R.layout.general_list_view);
         loadingIndicator = findViewById(R.id.progress_bar);
         loadingText = (TextView) findViewById(R.id.loading_message);
 
-        listView = (ListView) findViewById(R.id.culture_list_view);
+        listView = (ListView) findViewById(R.id.general_list_view);
         list = new ArrayList<>();
         adapter = new ListAdapter(this, list);
         listView.setAdapter(adapter);
@@ -49,6 +49,7 @@ public class Culture extends AppCompatActivity implements LoaderManager.LoaderCa
             }
         });
     }
+
     private boolean fetchData() {
         if (isConnected()) {
             android.app.LoaderManager loaderManager = getLoaderManager();
@@ -92,5 +93,6 @@ public class Culture extends AppCompatActivity implements LoaderManager.LoaderCa
     public void onLoaderReset(Loader<ArrayList<News>> loader) {
         adapter.clear();
     }
+
 
 }
