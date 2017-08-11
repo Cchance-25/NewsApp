@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="80dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/article_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:paddingEnd="5dp"
+        android:paddingStart="16dp"
+        android:paddingTop="6dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/headerTitleColor"
+        tools:text="Is technology delivering in schools? Our panel debates" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingStart="16dp">
+
+        <TextView
+            android:id="@+id/author"
+            style="@style/metadata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="By Author name in " />
+
+        <TextView
+            android:id="@+id/section_name"
+            style="@style/metadata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/author"
+            android:textStyle="italic"
+            tools:text="Teacher Network" />
+
+        <TextView
+            android:id="@+id/publish_date"
+            style="@style/metadata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:paddingEnd="16dp"
+            tools:text="April, 17, 2017" />
+    </RelativeLayout>
+
+</LinearLayout>

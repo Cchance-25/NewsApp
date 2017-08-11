@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">News App</string>
+    <string name="loading_the_news">Loading the news...</string>
+    <string name="title_activity_culture">Culture</string>
+    <string name="no_connection">No Internet Connection</string>
+    <string name="cat_culture">culture</string>
+    <string name="cat_business">Business</string>
+    <string name="cat_lifestyle">Lifestyle</string>
+    <string name="cat_fashion">fashion</string>
+    <string name="cat_environment">Environment</string>
+    <string name="cat_technology">Technology</string>
+    <string name="cat_travel">Travel</string>
+</resources>
