@@ -1,6 +1,7 @@
 package com.example.chance.newsapp;
 
 import android.app.LoaderManager;
+import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
@@ -17,7 +18,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class BaseFetchClassActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>> {
-
 
     private final static String TAG = BaseFetchClassActivity.class.getSimpleName();
     private ArrayList<News> list;
@@ -96,4 +96,28 @@ public class BaseFetchClassActivity extends AppCompatActivity implements LoaderM
     }
 
 
+    private static class BackgroundLoader extends AsyncTaskLoader<ArrayList<News>> {
+
+        private String url;
+
+        public BackgroundLoader(Context context, String url) {
+            super(context);
+            this.url = url;
+        }
+
+        @Override
+        protected void onStartLoading() {
+            forceLoad();
+        }
+
+        @Override
+        public ArrayList<News> loadInBackground() {
+            if (url == null)
+                return null;
+            ArrayList<News> list = Utils.getFinalList(url);
+            return list;
+        }
+
+
+    }
 }
