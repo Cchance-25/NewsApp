@@ -1,6 +1,7 @@
 package com.example.chance.newsapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class NewsMainActivity extends AppCompatActivity {
 
-
+    private final static String API_KEY = "d6f0833e-7009-4d64-86d1-97d10c3661fd";
     private final static int CULTURE_NUMBER = 0;
     private final static int BUSINESS_NUMBER = 1;
     private final static int LIFESTYLE_NUMBER = 2;
@@ -20,9 +21,10 @@ public class NewsMainActivity extends AppCompatActivity {
     private final static int ENVIRONMENT_NUMBER = 4;
     private final static int TECH_NUMBER = 5;
     private final static int TRAVEL_NUMBER = 6;
+    private static String BASE_REQUEST_URL = "https://content.guardianapis.com/";
     private Intent i;
+    private Uri url;
 
-    private Bundle b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,31 +53,45 @@ public class NewsMainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case CULTURE_NUMBER:
-                        i = new Intent(NewsMainActivity.this, Culture.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        url = makeUri("culture");
+                        i.setData(url);
                         startActivity(i);
                         break;
                     case BUSINESS_NUMBER:
-                        i = new Intent(NewsMainActivity.this, Business.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        url = makeUri("business");
+                        i.setData(url);
                         startActivity(i);
                         break;
                     case LIFESTYLE_NUMBER:
-                        i = new Intent(NewsMainActivity.this, Lifestyle.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        url = makeUri("lifeandstyle");
+                        i.setData(url);
                         startActivity(i);
                         break;
                     case FASHION_NUMBER:
-                        i = new Intent(NewsMainActivity.this, Fashion.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        url = makeUri("fashion");
+                        i.setData(url);
                         startActivity(i);
                         break;
                     case ENVIRONMENT_NUMBER:
-                        i = new Intent(NewsMainActivity.this, EnvironmentActivity.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        url = makeUri("environment");
+                        i.setData(url);
                         startActivity(i);
                         break;
                     case TECH_NUMBER:
-                        i = new Intent(NewsMainActivity.this, Tech.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        url = makeUri("technology");
+                        i.setData(url);
                         startActivity(i);
                         break;
                     case TRAVEL_NUMBER:
-                        i = new Intent(NewsMainActivity.this, Travel.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        url = makeUri("travel");
+                        i.setData(url);
                         startActivity(i);
                         break;
                 }
@@ -83,5 +99,11 @@ public class NewsMainActivity extends AppCompatActivity {
         });
 
     }
+
+    private Uri makeUri(String category) {
+        Uri url = Uri.withAppendedPath(Uri.parse(BASE_REQUEST_URL), category + "?api-key=" + API_KEY);
+        return url;
+    }
+
 
 }

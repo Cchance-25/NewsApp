@@ -16,17 +16,16 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Lifestyle extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>>{
+public class BaseFetchClass extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>> {
 
 
-    private final static String API_KEY = "d6f0833e-7009-4d64-86d1-97d10c3661fd";
-    private final static String REQUEST_URL = "https://content.guardianapis.com/lifeandstyle?api-key="+API_KEY;
-    private final static String TAG = Lifestyle.class.getSimpleName();
+    private final static String TAG = BaseFetchClass.class.getSimpleName();
     private ArrayList<News> list;
     private ListView listView;
     private ListAdapter adapter;
     private View loadingIndicator;
     private TextView loadingText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +39,6 @@ public class Lifestyle extends AppCompatActivity implements LoaderManager.Loader
         listView.setAdapter(adapter);
 
         fetchData();
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -54,7 +52,7 @@ public class Lifestyle extends AppCompatActivity implements LoaderManager.Loader
     private boolean fetchData() {
         if (isConnected()) {
             android.app.LoaderManager loaderManager = getLoaderManager();
-            loaderManager.initLoader(1, null, this);
+            loaderManager.initLoader(0, null, this);
             loadingIndicator.setVisibility(View.VISIBLE);
             loadingText.setVisibility(View.VISIBLE);
             return true;
@@ -65,12 +63,13 @@ public class Lifestyle extends AppCompatActivity implements LoaderManager.Loader
             return false;
         }
     }
+
     //Check Whether Internet Connection is Available or Not
     private boolean isConnected() {
         boolean isConnected = false;
-        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        if(networkInfo != null && networkInfo.isConnected())
+        if (networkInfo != null && networkInfo.isConnected())
             isConnected = true;
         return isConnected;
     }
@@ -78,6 +77,8 @@ public class Lifestyle extends AppCompatActivity implements LoaderManager.Loader
     @Override
     public Loader<ArrayList<News>> onCreateLoader(int id, Bundle args) {
         Utils.clearList();
+        Intent i = getIntent();
+        String REQUEST_URL = i.getDataString();
         return new BackgroundLoader(this, REQUEST_URL);
     }
 
@@ -85,15 +86,14 @@ public class Lifestyle extends AppCompatActivity implements LoaderManager.Loader
     public void onLoadFinished(Loader<ArrayList<News>> loader, ArrayList<News> data) {
         loadingIndicator.setVisibility(View.GONE);
         loadingText.setVisibility(View.GONE);
-        adapter.clear();
         adapter.addAll(data);
 
     }
 
     @Override
     public void onLoaderReset(Loader<ArrayList<News>> loader) {
-        list.clear();
         adapter.clear();
     }
+
 
 }

@@ -21,37 +21,10 @@
         </activity>
 
         <activity
-            android:name=".Culture"
-            android:label="Culture News Feed"
-            android:parentActivityName=".NewsMainActivity" />
-        <activity
-            android:name=".Business"
-            android:label="Business News Feed"
-            android:parentActivityName=".NewsMainActivity" />
-        <activity
-            android:name=".Lifestyle"
-            android:label="Lifestyle News Feed"
-            android:parentActivityName=".NewsMainActivity" />
-
-        <activity
-            android:name=".Fashion"
-            android:label="Fashion News Feed"
-            android:parentActivityName=".NewsMainActivity" />
-
-        <activity
-            android:name=".EnvironmentActivity"
-            android:label="Environment News Feed"
-            android:parentActivityName=".NewsMainActivity" />
-
-        <activity
-            android:name=".Tech"
-            android:label="Technology News Feed"
-            android:parentActivityName=".NewsMainActivity" />
-
-        <activity
-            android:name=".Travel"
+            android:name=".BaseFetchClass"
             android:label="Travel News Feed"
             android:parentActivityName=".NewsMainActivity" />
+
     </application>
 
 </manifest>
