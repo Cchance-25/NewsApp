@@ -16,10 +16,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class BaseFetchClass extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>> {
+public class BaseFetchClassActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>> {
 
 
-    private final static String TAG = BaseFetchClass.class.getSimpleName();
+    private final static String TAG = BaseFetchClassActivity.class.getSimpleName();
     private ArrayList<News> list;
     private ListView listView;
     private ListAdapter adapter;

@@ -53,43 +53,43 @@ public class NewsMainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case CULTURE_NUMBER:
-                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClassActivity.class);
                         url = makeUri("culture");
                         i.setData(url);
                         startActivity(i);
                         break;
                     case BUSINESS_NUMBER:
-                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClassActivity.class);
                         url = makeUri("business");
                         i.setData(url);
                         startActivity(i);
                         break;
                     case LIFESTYLE_NUMBER:
-                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClassActivity.class);
                         url = makeUri("lifeandstyle");
                         i.setData(url);
                         startActivity(i);
                         break;
                     case FASHION_NUMBER:
-                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClassActivity.class);
                         url = makeUri("fashion");
                         i.setData(url);
                         startActivity(i);
                         break;
                     case ENVIRONMENT_NUMBER:
-                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClassActivity.class);
                         url = makeUri("environment");
                         i.setData(url);
                         startActivity(i);
                         break;
                     case TECH_NUMBER:
-                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClassActivity.class);
                         url = makeUri("technology");
                         i.setData(url);
                         startActivity(i);
                         break;
                     case TRAVEL_NUMBER:
-                        i = new Intent(NewsMainActivity.this, BaseFetchClass.class);
+                        i = new Intent(NewsMainActivity.this, BaseFetchClassActivity.class);
                         url = makeUri("travel");
                         i.setData(url);
                         startActivity(i);

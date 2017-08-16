@@ -21,7 +21,7 @@
         </activity>
 
         <activity
-            android:name=".BaseFetchClass"
+            android:name=".BaseFetchClassActivity"
             android:label="Travel News Feed"
             android:parentActivityName=".NewsMainActivity" />
 
